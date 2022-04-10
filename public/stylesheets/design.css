@@ -1,0 +1,11 @@
+#brand {
+    font-family: sans-serif;
+    font-size: 20px;
+}
+.row table{
+    border-color: blue;
+    margin-left: 25%;
+}
+#employee_table {
+    margin-top: 10rem;
+}

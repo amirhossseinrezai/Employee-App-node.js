@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>This is the main page </title>
+    <link rel="stylesheet" href="../public/stylesheets/design.css">
+    <link rel="stylesheet" href="../public/css/bootstrap-v4.css">
+    <link rel="stylesheet" href="../public/css/all.css">
+    <script src="../public/js/jquery.js"></script>
+    <script src="../public/js/bootstrap-v4.js"></script>
+    <script src="../public/js/all.js"></script>
+</head>
+
+<body style="background-color: #e8e8e8;">
+    <%- include('../views/header'); %>
+        <div class="container-fluid " style="margin-top: 14rem; ">
+            <div class="row d-block">
+                <h1 class="text-center">Search Employee</h1>
+                <form action="/employee_db" method="get" class="justify-content-center d-flex">
+                    <div class="form-group d-flex">
+                        <input type="text" class="form-control" name="search" placeholder="Enter Name ...">
+                        <button type="submit" class="btn btn-success ml-2">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="row d-block">
+                <% if(query) {%>
+                    <table class="table table-striped border-dark table-responsive-md w-50 ">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td>
+                                    <%=query.name%>
+                                </td>
+                                <td>
+                                    <%=query.designation%>
+                                </td>
+                                <td>
+                                    <%=query.salary%>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <%} else {%>
+                        <%- include('../views/messages'); %>
+                    <%}%>
+            </div>
+        </div>
+</body>
+
+</html>
